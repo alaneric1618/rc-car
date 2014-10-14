@@ -1,0 +1,43 @@
+use<ballJointMale.scad>
+$fn = 20;
+//hingePin
+module hingePinEnd(){
+difference() {difference() {difference() {difference() {cylinder(3,5,5);translate([3.5,0,0])cylinder(3,1,1);};translate([-3.5,0,0]) cylinder(3,1,1);};translate([0,3.5,0])cylinder(3,1,1);};translate([0,-3.5,0])cylinder(3,1,1);};
+
+}
+//hub post
+module hubPost(){
+translate([0,0,10]) rotate([0,90,0]) cylinder(15,5,5);
+translate([14,0,10]) rotate([0,90,0])cylinder(5,5,2);
+translate([15,0,10]) rotate([0,90,0])cylinder(15,2,2);
+}
+//hub cylinder
+module hubCylinder(){
+cylinder(20,7.5,7.5);
+translate([0,0,-5])cylinder(30,2.5,2.5);
+}
+//steering Arm
+module steeringArm(){
+translate([-5,0,12])rotate([0,90,0]) cube([4,20,10]);
+translate([-2,12,11])rotate([-90,0,45]) cube([10,2,15]);
+}
+//hub assembly
+module hubAssembly(){
+translate([0,0,-6]) hingePinEnd();
+translate([0,0,23]) hingePinEnd();
+hubPost();
+hubCylinder();
+steeringArm();
+
+}
+//left
+module leftHubAssembly(){
+hubAssembly();
+translate([-6,25,15])rotate([180,0,0])ballJointMale();
+}
+//right
+module rightHubAssembly(){
+hubAssembly();
+translate([-6,25,5])ballJointMale();
+}
+rightHubAssembly();
