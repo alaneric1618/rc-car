@@ -1,5 +1,5 @@
 module floor() {
-    translate([0,0,-3]) cube([100,177.8,3], center=true);
+    translate([0,0,-1.5]) cube([100,177.8,3], center=true);
 }
 
 module bank() {
@@ -22,11 +22,17 @@ module servo() {
 }
 
 module bodyFloor() {
-    floor();
-    translate([30,-60,40]) rotate(90) bank();
-    translate([-30,-40,0])board();
-    translate([10,-75,0]) motor();
-    translate([10,50,0]) rotate(90) servo();
+    union() {
+	floor();
+	// Board Holder
+	translate([30,-60,40]) rotate(90) bank();
+	difference() {
+	    scale([1.17,1.1,0.3]) translate([-30,-40,0]) board();
+	    translate([-30,-40,1]) board();
+	}
+	translate([10,-75,0]) motor();
+	translate([10,50,0]) rotate(90) servo();
+    }
 }
 
 bodyFloor();
