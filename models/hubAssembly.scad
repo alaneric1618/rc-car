@@ -15,8 +15,8 @@ module hingePinEnd() {
 //hub post
 module hubPost(){
     translate([0,0,10]) rotate([0,90,0]) cylinder(15,5,5);
-    translate([14,0,10]) rotate([0,90,0])cylinder(5,5,2);
-    translate([15,0,10]) rotate([0,90,0])cylinder(15,2,2);
+    translate([14,0,10]) rotate([0,90,0]) cylinder(5,5,2);
+    translate([15,0,10]) rotate([0,90,0]) cylinder(15,2,2);
 }
 //hub cylinder
 module hubCylinder(){
@@ -30,8 +30,8 @@ module steeringArm(){
 }
 //hub assembly
 module hubAssembly(){
-    translate([0,0,-6]) hingePinEnd();
-    translate([0,0,23]) hingePinEnd();
+    //translate([0,0,-6]) hingePinEnd();
+    //translate([0,0,23]) hingePinEnd();
     hubPost();
     hubCylinder();
     steeringArm();
@@ -46,3 +46,6 @@ module rightHubAssembly(){
     hubAssembly();
     translate([-6,25,5])ballJointMale();
 }
+
+hubAssembly();
+//scale([-1,1,1]) hubAssembly();

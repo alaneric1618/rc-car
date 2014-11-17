@@ -1,10 +1,14 @@
 use<bodyfloor.scad>
 use<bodyfloor.scad>
 use<hubAssembly.scad>
-
+use<wheel.scad>
+use<shell.scad>
 
 bodyFloor();
-translate([40,80,21]) rotate([180,0,0]) rightHubAssembly();
-translate([-40,80,1]) rotate([0,0,180]) leftHubAssembly();
-
+translate([45,55,10]) rotate(90,[0,1,0]) scale(20) wheel(40);
+translate([-45,55,10]) rotate(-90,[0,1,0]) scale(20) wheel(40);
+translate([45,-55,10]) rotate(90,[0,1,0]) scale(20) wheel(40);
+translate([-45,-55,10]) rotate(-90,[0,1,0]) scale(20) wheel(40);
+translate([25,55,0]) hubAssembly();
+translate([-25,55,0]) scale([-1,1,1]) hubAssembly();
 
