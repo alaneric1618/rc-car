@@ -12,6 +12,7 @@ module hingePinEnd() {
         }
     }
 }
+
 //hub post
 module hubPost(){
     translate([0,0,10]) rotate([0,90,0]) cylinder(15,5,5);
@@ -39,7 +40,7 @@ module hubAssembly(){
 //left
 module leftHubAssembly(){
     hubAssembly();
-    translate([-6,25,15])rotate([180,0,0])ballJointMale();
+    translate([-6,25,15]) rotate([180,0,0])ballJointMale();
 }
 //right
 module rightHubAssembly(){

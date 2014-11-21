@@ -1,6 +1,6 @@
 inchestomm = 25.4;
 inches = 6;
-quality=50;
+quality=20;
 
 //2 units in each direction
 module wheel(res) {
@@ -29,12 +29,13 @@ module wheel(res) {
             for (theta=[0:30:360]) {
                 rotate([0,0,theta]) linear_extrude(height = 1, convexity = 10, twist = 40) translate([0.94, 0, 0]) scale([1.5,2.5,1]) minkowski() polygon(treadPoly) square(size= 0.07, $fn=20);
             }
-
+            //Shaft Hole
+            translate([0,0,-0.1]) cylinder(r=0.17,h=0.98);
         }
-        translate([0,0,0.75]) cylinder(r=0.08,h=0.1,$fn=5);
-        difference() {
-            cylinder(r=0.15,h=0.78);
-            translate([0,0,-0.1]) cylinder(r=0.12,h=0.78);
+        //Shaft
+        color([0.6,0.15,0.15]) difference() {
+            cylinder(r=0.2,h=0.78);
+            translate([0,0,-0.1]) cylinder(r=0.17,h=0.98);
         }
     }
 }
