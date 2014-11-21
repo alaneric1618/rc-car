@@ -34,7 +34,7 @@ module wheel(res) {
         }
         //Shaft
         color([0.6,0.15,0.15]) difference() {
-            cylinder(r=0.2,h=0.78);
+            cylinder(r=0.23,h=0.78);
             translate([0,0,-0.1]) cylinder(r=0.17,h=0.98);
         }
     }

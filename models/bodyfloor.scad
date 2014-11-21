@@ -89,7 +89,14 @@ module bodyFloor() {
         //translate([-5.9,50,0]) servo();
         translate([-8,55,5]) cube([4,10,6],center=true);
         translate([8,55,5]) cube([4,10,6],center=true);
-
+        //Axel Holder
+        difference() {
+            translate([0,-92.75,0]) rotate(90,[0,-1,0]) cylinder(r=5,h=75, $fn=100,center=true);
+            translate([0,-92.75,0]) rotate(90,[0,-1,0]) cylinder(r=3.4,h=85, $fn=100,center=true);
+            translate([0,-90,0]) cube([18,18,18],center=true);
+            translate([-23,-90,0]) cube([18,18,18],center=true);
+            translate([23,-90,0]) cube([18,18,18],center=true);
+        }
     }
 }
 
