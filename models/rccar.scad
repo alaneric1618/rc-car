@@ -42,19 +42,34 @@ module axelWheel() {
     }
 }
 
+module upperCrossbar(){
+        difference(){
+                translate([-30,53,23.5]) cube([60,16,4]);
+                //hub holes
+                translate([25,57,23.5]) cylinder(r=2.75,h=28, center=true, $fn=50);
+                translate([-25,57,23.5]) cylinder(r=2.75,h=28, center=true, $fn=50);
+                //servo slit
+                translate([0,50+15.5,23.5]) cube([12,1.6,10],center=true);
+        }
+}
+
+module lowerCrossbar(){
+        difference(){
+                translate([-25,74,6]) cube([50,10,2]);
+                translate([20,79,5.9]) cylinder(7.2,2.75,2.75,$fn=100);
+                translate([-20,79,5.9]) cylinder(7.2,2.75,2.75,$fn=100);
+                translate([0,79,5.9]) cube([10,5,5],center=true);
+        }
+}
 
 bodyFloor();
-//translate([45,55,10])   rotate(90,[0,1,0])  scale(20) wheel(40);
-//translate([-45,55,10])  rotate(-90,[0,1,0]) scale(20) wheel(40);
-
-//translate([-45,-55,10]) rotate(-90,[0,1,0]) scale(20) wheel(40);
-translate([25,55,0])    hubAssembly();
-translate([-25,55,0])   scale([-1,1,1])     hubAssembly();
-
+translate([25,57,0])    hubAssembly();
+translate([-25,57,0])   scale([-1,1,1])     hubAssembly();
+translate([45,57,4])   rotate(90,[0,1,0])  scale(20) wheel(25);
+translate([-45,57,4])  rotate(-90,[0,1,0]) scale(20) wheel(25);
 largeGear();
 axelWheel();
 axel();
-
-
-//scale([0.254,-0.254,0.254]) shell();
+upperCrossbar();
+lowerCrossbar();
 

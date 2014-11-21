@@ -7,10 +7,10 @@ module floor() {
         translate([-50,-55,0]) rotate(90,[0,1,0]) cylinder(r=35,h=28, center=true);
         translate([-50,55,0]) rotate(90,[0,1,0]) cylinder(r=35,h=28, center=true);
         //hub holes
-        translate([25,55,0]) cylinder(r=2.75,h=28, center=true, $fn=50);
-        translate([-25,55,0]) cylinder(r=2.75,h=28, center=true, $fn=50);
+        translate([25,57,0]) cylinder(r=2.75,h=28, center=true, $fn=50);
+        translate([-25,57,0]) cylinder(r=2.75,h=28, center=true, $fn=50);
         //servo slit
-        translate([0,48+15.5,0]) cube([12,1.6,10],center=true);
+        translate([0,50+15.5,0]) cube([12,1.6,10],center=true);
     }
 }
 
@@ -87,8 +87,10 @@ module bodyFloor() {
         }
         // SERVO
         //translate([-5.9,50,0]) servo();
-        translate([-8,55,5]) cube([4,10,6],center=true);
-        translate([8,55,5]) cube([4,10,6],center=true);
+        translate([-8,57,2.9]) cube([4,10,6],center=true);
+        translate([8,57,2.9]) cube([4,10,6],center=true);
+        //servo rear support
+        translate([0,50,2.9]) cube([20,4,6],center=true);
         //Axel Holder
         difference() {
             translate([0,-92.75,0]) rotate(90,[0,-1,0]) cylinder(r=5,h=75, $fn=100,center=true);
